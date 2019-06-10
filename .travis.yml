@@ -1,6 +1,10 @@
-sudo: required
-
 language: java
+sudo: false
+
+jdk:
+  - oraclejdk8
+
+install: true
 
 script:
-  ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V

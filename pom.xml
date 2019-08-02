@@ -7,8 +7,10 @@
     <artifactId>lighting-deal-demo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
-        <module>eureka-cluster</module>
+        <module>service-registry</module>
+        <module>config-server</module>
     </modules>
 
     <parent>
@@ -18,12 +20,28 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <properties>
+        <springcloud.version>Greenwich.SR1</springcloud.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <profiles>
         <profile>
@@ -46,7 +64,7 @@
     </profiles>
 
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -57,7 +75,7 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
 </project>
